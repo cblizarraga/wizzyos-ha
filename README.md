@@ -33,6 +33,8 @@ La instalacion esperada es como repositorio personalizado, no copiando archivos 
 
 Para agregar o quitar entidades desde una configuracion existente, abre WizzyOS, usa el menu de tres puntos y selecciona `Configurar`.
 
+Nota: HACS tambien crea una pagina/dispositivo llamado `WizzyOS` para la entidad de actualizacion del repositorio. Esa pantalla muestra `Update`, `Pre-release` y un enlace `Visitar`. La configuracion de entidades propias de WizzyOS esta en la entrada de la integracion instalada desde `Configuracion > Dispositivos y servicios`, no en la pagina de HACS.
+
 ## Objetivo De Prueba Basica
 
 Confirmar que la integracion puede leer una entidad local existente, crear un sensor propio de WizzyOS y mantenerlo actualizado con el estado de la entidad seleccionada.

@@ -13,10 +13,11 @@ from homeassistant.const import (
     STATE_UNKNOWN,
 )
 from homeassistant.core import Event, HomeAssistant, State, callback
+from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_state_change_event
 
-from .const import ATTR_SOURCE_ENTITY_ID, CONF_ENTITIES, CONF_ENTITY_ID
+from .const import ATTR_SOURCE_ENTITY_ID, CONF_ENTITIES, CONF_ENTITY_ID, DOMAIN
 
 
 async def async_setup_entry(
@@ -87,6 +88,15 @@ class WizzyOSEntitySensor(SensorEntity):
         return {
             ATTR_SOURCE_ENTITY_ID: self.source_entity_id,
         }
+
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Return device information for this WizzyOS entry."""
+        return DeviceInfo(
+            identifiers={(DOMAIN, self.entry.entry_id)},
+            manufacturer="WizzyOS",
+            name=self.entry.title,
+        )
 
     async def async_added_to_hass(self) -> None:
         """Subscribe to source entity state changes."""

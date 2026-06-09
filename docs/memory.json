@@ -3,7 +3,7 @@
     "name": "wizzyos-ha",
     "display_name": "WizzyOS",
     "integration_domain": "wizzyos",
-    "manifest_version": "0.3.1",
+    "manifest_version": "0.3.2",
     "component_path": "custom_components/wizzyos",
     "documentation_path": "docs",
     "opencode_agent": "ha-component-dev"
@@ -38,7 +38,8 @@
     "options_flow_created": true,
     "multiple_entities_supported": true,
     "options_flow_callback_reinforced": true,
-    "mirrored_device_class_removed": true
+    "mirrored_device_class_removed": true,
+    "sensor_device_info_added": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
@@ -141,6 +142,11 @@
       "date": "2026-06-08",
       "decision": "Marcar async_get_options_flow con callback.",
       "reason": "Se reforzo el registro del options flow para mejorar compatibilidad con Home Assistant y hacer visible Configurar."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Agregar device_info a los sensores espejo de WizzyOS.",
+      "reason": "La captura mostro la pagina creada por HACS para el repositorio, no la entrada configurable real. Agrupar sensores bajo un dispositivo WizzyOS propio ayuda a distinguir las entidades del componente frente a las entidades Update de HACS."
     }
   ],
   "test_findings": [
@@ -167,6 +173,12 @@
       "source": "Home Assistant local",
       "finding": "HACS fallo descargando https://github.com/cblizarraga/wizzyos-ha/archive/refs/heads/cb3ea0a.zip y a29c5dc.zip; HACS intento tratar hashes de commit como ramas, por eso Home Assistant siguio usando una version anterior.",
       "status": "requires_hacs_reinstall_or_stable_ref"
+    },
+    {
+      "date": "2026-06-08",
+      "source": "Home Assistant UI",
+      "finding": "La pantalla donde el usuario busca Configurar corresponde al dispositivo/pagina de HACS para el repositorio WizzyOS, con entidades Update y Pre-release, no necesariamente a la entrada configurable del custom integration.",
+      "status": "documented"
     }
   ],
   "open_questions": [

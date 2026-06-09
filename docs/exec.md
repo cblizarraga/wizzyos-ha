@@ -18,7 +18,7 @@ Este archivo registra el avance practico del desarrollo del componente hasta log
 - Plataforma `sensor` creada en `custom_components/wizzyos/sensor.py`.
 - Config flow actualizado para seleccionar entidades existentes con selector nativo.
 - Options flow creado para configurar varias entidades desde el menu `Configurar`.
-- Version del manifest actualizada a `0.3.1`.
+- Version del manifest actualizada a `0.3.2`.
 - Archivos iniciales creados:
   - `manifest.json`
   - `__init__.py`
@@ -106,6 +106,8 @@ Estado: pendiente.
 - Se reforzo el registro del options flow con `@callback` y se incremento la version del manifest a `0.3.1`.
 - El log local mostro errores de HACS descargando `refs/heads/cb3ea0a.zip` y `refs/heads/a29c5dc.zip`, lo que indica que HACS intento usar hashes de commit como ramas y no instalo la version nueva.
 - Se documento reinstalar o re-agregar el repositorio personalizado desde `https://github.com/cblizarraga/wizzyos-ha` y usar `main` o una version estable.
+- La captura del usuario mostro la pagina/dispositivo creado por HACS para el repositorio, no la entrada configurable real de WizzyOS.
+- Se agrego `device_info` a los sensores espejo para que Home Assistant agrupe las entidades propias bajo un dispositivo WizzyOS real, separado del dispositivo HACS Update.
 
 ## Riesgos o Bloqueos
 
