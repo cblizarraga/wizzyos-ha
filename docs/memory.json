@@ -1,6 +1,7 @@
 {
   "project": {
     "name": "componente-ha",
+    "display_name": "WizzyOS",
     "integration_domain": "componente_ha",
     "component_path": "custom_components/componente_ha",
     "documentation_path": "docs",
@@ -24,7 +25,8 @@
     "repository_installation_required": true,
     "hacs_metadata_created": true,
     "readme_created": true,
-    "config_flow_import_fix_applied": true
+    "config_flow_import_fix_applied": true,
+    "display_name_updated_to_wizzyos": true
   },
   "known_files": {
     "manifest": "custom_components/componente_ha/manifest.json",
@@ -73,6 +75,11 @@
       "date": "2026-06-08",
       "decision": "Importar valid_entity_id desde homeassistant.core en config_flow.py.",
       "reason": "La prueba local reporto Invalid handler specified, consistente con un fallo de importacion del config flow."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Usar WizzyOS como nombre visible de la integracion.",
+      "reason": "El usuario pidio reemplazar Componente HA por WizzyOS en nombres y descripciones visibles. Se mantiene el dominio tecnico componente_ha para no cambiar la estructura instalada."
     }
   ],
   "test_findings": [

@@ -1,4 +1,4 @@
-"""The Componente HA integration."""
+"""The WizzyOS integration."""
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
@@ -7,7 +7,7 @@ from .const import CONF_ENTITY_ID, DATA_ENTITY_ID, DATA_ENTITY_STATE, DOMAIN
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up Componente HA from a config entry."""
+    """Set up WizzyOS from a config entry."""
     entity_id = entry.data[CONF_ENTITY_ID]
     state = hass.states.get(entity_id)
 

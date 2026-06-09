@@ -1,4 +1,4 @@
-"""Constants for the Componente HA integration."""
+"""Constants for the WizzyOS integration."""
 
 DOMAIN = "componente_ha"
 

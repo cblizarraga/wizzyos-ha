@@ -1,4 +1,4 @@
-"""Config flow for Componente HA."""
+"""Config flow for WizzyOS."""
 
 from __future__ import annotations
 
@@ -12,8 +12,8 @@ from homeassistant.core import valid_entity_id
 from .const import CONF_ENTITY_ID, CONF_NAME, DOMAIN
 
 
-class ComponenteHaConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for Componente HA."""
+class WizzyOSConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
+    """Handle a config flow for WizzyOS."""
 
     VERSION = 1
 

@@ -12,6 +12,7 @@ Este archivo registra el avance practico del desarrollo del componente hasta log
 - Constantes compartidas creadas en `custom_components/componente_ha/const.py`.
 - Metadatos para repositorio personalizado creados en `hacs.json`.
 - Guia de instalacion creada en `README.md`.
+- Nombre visible de la integracion actualizado a `WizzyOS`.
 - Archivos iniciales creados:
   - `manifest.json`
   - `__init__.py`
@@ -83,6 +84,7 @@ Estado: pendiente.
 - Durante la prueba local, Home Assistant mostro el error `No se pudo cargar el flujo de configuración: {"message":"Invalid handler specified"}` al intentar agregar la integracion.
 - Se identifico una causa probable en `config_flow.py`: import incompatible de `valid_entity_id` desde `homeassistant.helpers.entity`.
 - Se cambio el import a `homeassistant.core.valid_entity_id` y se simplifico la anotacion de retorno de `async_step_user` para compatibilidad.
+- Se cambio el nombre visible de la integracion de `Componente HA` a `WizzyOS`, manteniendo el dominio tecnico `componente_ha`.
 
 ## Riesgos o Bloqueos
 
