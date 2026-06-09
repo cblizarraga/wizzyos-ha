@@ -78,8 +78,15 @@ Estado: pendiente.
 - Se definio que el metodo de instalacion sera desde repositorio personalizado, no copiando la carpeta manualmente.
 - Se agrego `hacs.json` y `README.md` con instrucciones iniciales para instalar desde HACS.
 
+### 2026-06-08
+
+- Durante la prueba local, Home Assistant mostro el error `No se pudo cargar el flujo de configuración: {"message":"Invalid handler specified"}` al intentar agregar la integracion.
+- Se identifico una causa probable en `config_flow.py`: import incompatible de `valid_entity_id` desde `homeassistant.helpers.entity`.
+- Se cambio el import a `homeassistant.core.valid_entity_id` y se simplifico la anotacion de retorno de `async_step_user` para compatibilidad.
+
 ## Riesgos o Bloqueos
 
 - Falta conocer el `entity_id` real del tanque de gas.
 - Falta decidir el mecanismo exacto de visualizacion dentro de Home Assistant.
 - La prueba local depende de tener acceso a una instancia de Home Assistant con la entidad ya configurada.
+- Falta confirmar en Home Assistant local que el fix del config flow elimina el error `Invalid handler specified`.

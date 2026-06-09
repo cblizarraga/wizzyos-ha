@@ -7,7 +7,7 @@ from typing import Any
 import voluptuous as vol
 
 from homeassistant import config_entries
-from homeassistant.helpers.entity import valid_entity_id
+from homeassistant.core import valid_entity_id
 
 from .const import CONF_ENTITY_ID, CONF_NAME, DOMAIN
 
@@ -20,7 +20,7 @@ class ComponenteHaConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
-    ) -> config_entries.ConfigFlowResult:
+    ) -> dict[str, Any]:
         """Handle the initial step."""
         errors: dict[str, str] = {}
 

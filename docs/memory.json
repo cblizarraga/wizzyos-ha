@@ -23,7 +23,8 @@
     "entity_state_read_in_setup": true,
     "repository_installation_required": true,
     "hacs_metadata_created": true,
-    "readme_created": true
+    "readme_created": true,
+    "config_flow_import_fix_applied": true
   },
   "known_files": {
     "manifest": "custom_components/componente_ha/manifest.json",
@@ -67,6 +68,19 @@
       "date": "2026-06-07",
       "decision": "Instalar el componente desde un repositorio personalizado, preferentemente usando HACS.",
       "reason": "El flujo esperado de prueba no debe depender de copiar manualmente la carpeta custom_components."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Importar valid_entity_id desde homeassistant.core en config_flow.py.",
+      "reason": "La prueba local reporto Invalid handler specified, consistente con un fallo de importacion del config flow."
+    }
+  ],
+  "test_findings": [
+    {
+      "date": "2026-06-08",
+      "source": "Home Assistant local",
+      "finding": "Al intentar agregar la integracion se mostro No se pudo cargar el flujo de configuracion: Invalid handler specified.",
+      "status": "fix_applied_pending_retest"
     }
   ],
   "open_questions": [
