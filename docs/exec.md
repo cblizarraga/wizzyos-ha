@@ -104,11 +104,14 @@ Estado: pendiente.
 - El log local confirmo que WizzyOS crea `sensor.nivel_de_tanque_de_gas`.
 - Se corrigio el warning causado por copiar `device_class` incompatible desde la entidad origen.
 - Se reforzo el registro del options flow con `@callback` y se incremento la version del manifest a `0.3.1`.
+- El log local mostro errores de HACS descargando `refs/heads/cb3ea0a.zip` y `refs/heads/a29c5dc.zip`, lo que indica que HACS intento usar hashes de commit como ramas y no instalo la version nueva.
+- Se documento reinstalar o re-agregar el repositorio personalizado desde `https://github.com/cblizarraga/wizzyos-ha` y usar `main` o una version estable.
 
 ## Riesgos o Bloqueos
 
 - Falta conocer el `entity_id` real del tanque de gas.
 - Falta probar en Home Assistant local la creacion del sensor propio de WizzyOS con la entidad del tanque de gas.
 - Falta confirmar si despues de actualizar a `0.3.1` aparece `Configurar` en el menu de la entrada WizzyOS.
+- Falta confirmar que HACS descarga correctamente desde `main` o desde un tag estable en vez de intentar descargar hashes como ramas.
 - La prueba local depende de tener acceso a una instancia de Home Assistant con la entidad ya configurada.
 - Confirmado: la integracion ya funciona en Home Assistant local despues de los ajustes de dominio/config flow.

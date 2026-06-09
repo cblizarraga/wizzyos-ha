@@ -42,3 +42,11 @@ Confirmar que la integracion puede leer una entidad local existente, crear un se
 - Definir el `entity_id` real del tanque de gas.
 - Definir la unidad esperada del nivel del tanque.
 - Permitir editar o agregar multiples entidades desde un flujo de opciones mas avanzado.
+
+## Solucion De Problemas
+
+Si HACS muestra error `404` intentando descargar una URL como `refs/heads/<commit>.zip`, elimina el repositorio personalizado de HACS y agregalo de nuevo usando la URL del repositorio:
+
+`https://github.com/cblizarraga/wizzyos-ha`
+
+Despues instala la version mas reciente o la rama `main`, reinicia Home Assistant y verifica que el manifest instalado sea `0.3.1` o superior.

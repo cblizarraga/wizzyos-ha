@@ -161,6 +161,12 @@
       "source": "Home Assistant local",
       "finding": "WizzyOS creo sensor.nivel_de_tanque_de_gas y Home Assistant mostro warning por device_class voltage con unidad %. No aparecia Configurar en la UI.",
       "status": "fix_applied_pending_retest"
+    },
+    {
+      "date": "2026-06-08",
+      "source": "Home Assistant local",
+      "finding": "HACS fallo descargando https://github.com/cblizarraga/wizzyos-ha/archive/refs/heads/cb3ea0a.zip y a29c5dc.zip; HACS intento tratar hashes de commit como ramas, por eso Home Assistant siguio usando una version anterior.",
+      "status": "requires_hacs_reinstall_or_stable_ref"
     }
   ],
   "open_questions": [
@@ -224,6 +230,11 @@
     {
       "order": 9,
       "task": "Probar que el menu de tres puntos muestra Configurar y permite seleccionar multiples entidades.",
+      "status": "pending"
+    },
+    {
+      "order": 10,
+      "task": "Confirmar que HACS instala WizzyOS desde main o tag estable sin errores 404.",
       "status": "pending"
     }
   ],
