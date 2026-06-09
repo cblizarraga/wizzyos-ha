@@ -6,6 +6,8 @@ WizzyOS es un custom component de Home Assistant para visualizar entidades basic
 
 Proyecto en desarrollo inicial. WizzyOS ya permite configurar un `entity_id` existente y leer su estado inicial desde Home Assistant.
 
+Repositorio activo: `wizzyos-ha`.
+
 ## Instalacion Desde Repositorio
 
 La instalacion esperada es como repositorio personalizado, no copiando archivos manualmente.
