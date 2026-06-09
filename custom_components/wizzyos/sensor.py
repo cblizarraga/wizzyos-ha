@@ -16,7 +16,7 @@ from homeassistant.core import Event, HomeAssistant, State, callback
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_state_change_event
 
-from .const import ATTR_SOURCE_ENTITY_ID, CONF_ENTITY_ID
+from .const import ATTR_SOURCE_ENTITY_ID, CONF_ENTITIES, CONF_ENTITY_ID
 
 ATTR_DEVICE_CLASS = "device_class"
 
@@ -27,7 +27,12 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up WizzyOS sensors from a config entry."""
-    async_add_entities([WizzyOSEntitySensor(hass, entry)])
+    async_add_entities(
+        [
+            WizzyOSEntitySensor(hass, entry, entity_id, index)
+            for index, entity_id in enumerate(_configured_entities(entry), start=1)
+        ]
+    )
 
 
 class WizzyOSEntitySensor(SensorEntity):
@@ -36,12 +41,18 @@ class WizzyOSEntitySensor(SensorEntity):
     _attr_has_entity_name = False
 
 
-    def __init__(self, hass: HomeAssistant, entry: ConfigEntry) -> None:
+    def __init__(
+        self,
+        hass: HomeAssistant,
+        entry: ConfigEntry,
+        source_entity_id: str,
+        index: int,
+    ) -> None:
         """Initialize the sensor."""
         self.hass = hass
         self.entry = entry
-        self.source_entity_id = entry.data[CONF_ENTITY_ID]
-        self._attr_name = entry.title
+        self.source_entity_id = source_entity_id
+        self._attr_name = entry.title if index == 1 else _entity_name(hass, source_entity_id)
         self._attr_unique_id = f"{entry.entry_id}_{self.source_entity_id}"
         self._source_state: State | None = hass.states.get(self.source_entity_id)
 
@@ -101,3 +112,18 @@ class WizzyOSEntitySensor(SensorEntity):
         """Handle source entity state changes."""
         self._source_state = event.data.get("new_state")
         self.async_write_ha_state()
+
+
+def _configured_entities(entry: ConfigEntry) -> list[str]:
+    """Return all configured source entities without duplicates."""
+    entities = [entry.data[CONF_ENTITY_ID]]
+    entities.extend(entry.options.get(CONF_ENTITIES, []))
+    return list(dict.fromkeys(entities))
+
+
+def _entity_name(hass: HomeAssistant, entity_id: str) -> str:
+    """Return a readable name for a source entity."""
+    state = hass.states.get(entity_id)
+    if state is None:
+        return entity_id
+    return state.attributes.get("friendly_name", entity_id)

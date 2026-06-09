@@ -17,7 +17,8 @@ Este archivo registra el avance practico del desarrollo del componente hasta log
 - Tipo de integracion actualizado de `hub` a `entity` para que Home Assistant muestre entidades en vez de hubs.
 - Plataforma `sensor` creada en `custom_components/wizzyos/sensor.py`.
 - Config flow actualizado para seleccionar entidades existentes con selector nativo.
-- Version del manifest actualizada a `0.2.0`.
+- Options flow creado para configurar varias entidades desde el menu `Configurar`.
+- Version del manifest actualizada a `0.3.0`.
 - Archivos iniciales creados:
   - `manifest.json`
   - `__init__.py`
@@ -98,7 +99,8 @@ Estado: pendiente.
 - Se incremento la version del manifest a `0.1.1` para publicar el ajuste de metadatos.
 - Se agrego `sensor.py` para crear un sensor propio de WizzyOS por cada entidad configurada.
 - Se actualizo el config flow para usar un selector nativo de entidades existentes.
-- Se incremento la version del manifest a `0.2.0`.
+- Se agrego options flow para seleccionar varias entidades existentes desde el menu `Configurar` de la integracion.
+- Se incremento la version del manifest a `0.3.0`.
 
 ## Riesgos o Bloqueos
 

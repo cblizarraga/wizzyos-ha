@@ -3,7 +3,7 @@
     "name": "wizzyos-ha",
     "display_name": "WizzyOS",
     "integration_domain": "wizzyos",
-    "manifest_version": "0.2.0",
+    "manifest_version": "0.3.0",
     "component_path": "custom_components/wizzyos",
     "documentation_path": "docs",
     "opencode_agent": "ha-component-dev"
@@ -34,7 +34,9 @@
     "integration_type_updated_to_entity": true,
     "sensor_platform_created": true,
     "entity_selector_enabled": true,
-    "visible_mirror_sensor_created": true
+    "visible_mirror_sensor_created": true,
+    "options_flow_created": true,
+    "multiple_entities_supported": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
@@ -122,6 +124,11 @@
       "date": "2026-06-08",
       "decision": "Usar selector nativo de entidades en el config flow.",
       "reason": "Permite seleccionar entidades/dispositivos existentes con la UI de Home Assistant, manteniendo tambien el entity_id como dato guardado."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Agregar options flow para gestionar multiples entidades desde Configurar.",
+      "reason": "La UI no mostraba claramente un boton para agregar entidades dentro de la tarjeta; el options flow agrega una opcion visible en el menu de tres puntos para seleccionar varias entidades."
     }
   ],
   "test_findings": [
@@ -194,6 +201,11 @@
     {
       "order": 8,
       "task": "Evaluar options_flow para editar o agregar multiples entidades desde configuracion avanzada.",
+      "status": "completed"
+    },
+    {
+      "order": 9,
+      "task": "Probar que el menu de tres puntos muestra Configurar y permite seleccionar multiples entidades.",
       "status": "pending"
     }
   ],

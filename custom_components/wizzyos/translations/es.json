@@ -8,6 +8,13 @@
           "name": "Nombre",
           "entity_id": "Entidad existente"
         }
+      },
+      "init": {
+        "title": "Configurar entidades WizzyOS",
+        "description": "Selecciona las entidades existentes que WizzyOS debe reflejar como sensores propios.",
+        "data": {
+          "entities": "Entidades"
+        }
       }
     },
     "error": {
@@ -16,6 +23,21 @@
     },
     "abort": {
       "already_configured": "Esta entidad ya esta configurada en WizzyOS."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configurar entidades WizzyOS",
+        "description": "Selecciona las entidades existentes que WizzyOS debe reflejar como sensores propios.",
+        "data": {
+          "entities": "Entidades"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity_id": "El entity_id no es valido.",
+      "entity_not_found": "La entidad seleccionada no existe o no esta disponible."
     }
   }
 }

@@ -4,6 +4,7 @@ DOMAIN = "wizzyos"
 
 CONF_NAME = "name"
 CONF_ENTITY_ID = "entity_id"
+CONF_ENTITIES = "entities"
 
 DATA_ENTITY_ID = "entity_id"
 DATA_ENTITY_STATE = "entity_state"

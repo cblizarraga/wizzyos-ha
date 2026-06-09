@@ -31,7 +31,7 @@ La instalacion esperada es como repositorio personalizado, no copiando archivos 
 4. Ingresa un nombre.
 5. Selecciona una entidad existente, por ejemplo la entidad real del tanque de gas.
 
-Para agregar otra entidad, vuelve a usar `Agregar Entidad` en WizzyOS y selecciona otra entidad existente de Home Assistant.
+Para agregar o quitar entidades desde una configuracion existente, abre WizzyOS, usa el menu de tres puntos y selecciona `Configurar`.
 
 ## Objetivo De Prueba Basica
 
