@@ -3,6 +3,7 @@
     "name": "wizzyos-ha",
     "display_name": "WizzyOS",
     "integration_domain": "wizzyos",
+    "manifest_version": "0.1.1",
     "component_path": "custom_components/wizzyos",
     "documentation_path": "docs",
     "opencode_agent": "ha-component-dev"
@@ -29,7 +30,8 @@
     "display_name_updated_to_wizzyos": true,
     "technical_domain_updated_to_wizzyos": true,
     "context_management_documented": true,
-    "integration_working_in_home_assistant": true
+    "integration_working_in_home_assistant": true,
+    "integration_type_updated_to_entity": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
@@ -99,6 +101,11 @@
       "date": "2026-06-08",
       "decision": "Gestionar el desarrollo con documentacion y memoria persistente obligatoria.",
       "reason": "El usuario pidio no perder contexto, documentar siempre, recordar TODO en memoria cuando sea necesario y crear documentos, skills, tools o agentes si ayudan a la gestion integral."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Usar integration_type entity en el manifest de WizzyOS.",
+      "reason": "La UI de Home Assistant mostraba Agregar Hub y Hubs porque el manifest declaraba integration_type hub. El usuario pidio que se muestre Agregar Entidad y Entidades."
     }
   ],
   "test_findings": [

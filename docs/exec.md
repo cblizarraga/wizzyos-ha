@@ -14,6 +14,8 @@ Este archivo registra el avance practico del desarrollo del componente hasta log
 - Guia de instalacion creada en `README.md`.
 - Nombre visible de la integracion actualizado a `WizzyOS`.
 - Reglas de gestion de contexto documentadas en `docs/context-management.md`.
+- Tipo de integracion actualizado de `hub` a `entity` para que Home Assistant muestre entidades en vez de hubs.
+- Version del manifest actualizada a `0.1.1`.
 - Archivos iniciales creados:
   - `manifest.json`
   - `__init__.py`
@@ -91,6 +93,8 @@ Estado: pendiente.
 - Se preparo el cambio de nombre del repositorio de `componente-ha` a `wizzyos-ha`.
 - Se establecio como regla permanente documentar avances, decisiones, errores y bloqueos, manteniendo `docs/memory.json` como memoria de largo plazo.
 - Se confirmo que la integracion WizzyOS ya funciona en Home Assistant local.
+- Se cambio `integration_type` de `hub` a `entity` en `manifest.json` para que la UI use `Agregar Entidad` y `Entidades` en vez de `Agregar Hub` y `Hubs`.
+- Se incremento la version del manifest a `0.1.1` para publicar el ajuste de metadatos.
 
 ## Riesgos o Bloqueos
 
