@@ -1,0 +1,21 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Agregar entidad WizzyOS",
+        "description": "Selecciona una entidad existente de Home Assistant para que WizzyOS cree un sensor visible basado en ella.",
+        "data": {
+          "name": "Nombre",
+          "entity_id": "Entidad existente"
+        }
+      }
+    },
+    "error": {
+      "invalid_entity_id": "El entity_id no es valido.",
+      "entity_not_found": "La entidad seleccionada no existe o no esta disponible."
+    },
+    "abort": {
+      "already_configured": "Esta entidad ya esta configurada en WizzyOS."
+    }
+  }
+}

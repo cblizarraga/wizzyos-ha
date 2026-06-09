@@ -4,7 +4,7 @@ WizzyOS es un custom component de Home Assistant para visualizar entidades basic
 
 ## Estado
 
-Proyecto en desarrollo inicial. WizzyOS ya permite configurar un `entity_id` existente y leer su estado inicial desde Home Assistant.
+Proyecto en desarrollo inicial. WizzyOS ya permite seleccionar una entidad existente y crear un sensor visible basado en ella.
 
 Repositorio activo: `wizzyos-ha`.
 
@@ -29,14 +29,16 @@ La instalacion esperada es como repositorio personalizado, no copiando archivos 
 2. Abre Dispositivos y servicios.
 3. Agrega la integracion `WizzyOS`.
 4. Ingresa un nombre.
-5. Ingresa el `entity_id` real del tanque de gas, por ejemplo `sensor.tanque_gas`.
+5. Selecciona una entidad existente, por ejemplo la entidad real del tanque de gas.
+
+Para agregar otra entidad, vuelve a usar `Agregar Entidad` en WizzyOS y selecciona otra entidad existente de Home Assistant.
 
 ## Objetivo De Prueba Basica
 
-Confirmar que la integracion puede leer una entidad local existente usando `hass.states.get(entity_id)` y guardar una lectura inicial en `hass.data`.
+Confirmar que la integracion puede leer una entidad local existente, crear un sensor propio de WizzyOS y mantenerlo actualizado con el estado de la entidad seleccionada.
 
 ## Pendientes
 
 - Definir el `entity_id` real del tanque de gas.
 - Definir la unidad esperada del nivel del tanque.
-- Implementar la visualizacion inicial del valor.
+- Permitir editar o agregar multiples entidades desde un flujo de opciones mas avanzado.

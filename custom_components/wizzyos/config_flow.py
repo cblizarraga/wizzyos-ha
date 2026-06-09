@@ -8,6 +8,7 @@ import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.core import valid_entity_id
+from homeassistant.helpers import selector
 
 from .const import CONF_ENTITY_ID, CONF_NAME, DOMAIN
 
@@ -45,7 +46,7 @@ class WizzyOSConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             data_schema=vol.Schema(
                 {
                     vol.Required(CONF_NAME): str,
-                    vol.Required(CONF_ENTITY_ID): str,
+                    vol.Required(CONF_ENTITY_ID): selector.EntitySelector(),
                 }
             ),
             errors=errors,

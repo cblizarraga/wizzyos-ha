@@ -3,7 +3,7 @@
     "name": "wizzyos-ha",
     "display_name": "WizzyOS",
     "integration_domain": "wizzyos",
-    "manifest_version": "0.1.1",
+    "manifest_version": "0.2.0",
     "component_path": "custom_components/wizzyos",
     "documentation_path": "docs",
     "opencode_agent": "ha-component-dev"
@@ -31,13 +31,19 @@
     "technical_domain_updated_to_wizzyos": true,
     "context_management_documented": true,
     "integration_working_in_home_assistant": true,
-    "integration_type_updated_to_entity": true
+    "integration_type_updated_to_entity": true,
+    "sensor_platform_created": true,
+    "entity_selector_enabled": true,
+    "visible_mirror_sensor_created": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
     "init": "custom_components/wizzyos/__init__.py",
     "const": "custom_components/wizzyos/const.py",
     "config_flow": "custom_components/wizzyos/config_flow.py",
+    "sensor": "custom_components/wizzyos/sensor.py",
+    "strings": "custom_components/wizzyos/strings.json",
+    "spanish_translations": "custom_components/wizzyos/translations/es.json",
     "plan": "docs/plan.md",
     "execution": "docs/exec.md",
     "memory": "docs/memory.json",
@@ -106,6 +112,16 @@
       "date": "2026-06-08",
       "decision": "Usar integration_type entity en el manifest de WizzyOS.",
       "reason": "La UI de Home Assistant mostraba Agregar Hub y Hubs porque el manifest declaraba integration_type hub. El usuario pidio que se muestre Agregar Entidad y Entidades."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Crear un sensor propio de WizzyOS por cada entidad configurada.",
+      "reason": "El usuario necesita ver algo real dentro de Home Assistant y poder agregar entidades existentes facilmente."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Usar selector nativo de entidades en el config flow.",
+      "reason": "Permite seleccionar entidades/dispositivos existentes con la UI de Home Assistant, manteniendo tambien el entity_id como dato guardado."
     }
   ],
   "test_findings": [
@@ -136,7 +152,7 @@
     {
       "id": "initial_visualization",
       "question": "La primera visualizacion sera pagina propia, panel, dashboard card, sensor agregado o servicio?",
-      "status": "pending"
+      "status": "resolved_sensor_entity"
     }
   ],
   "next_steps": [
@@ -153,7 +169,7 @@
     {
       "order": 3,
       "task": "Definir e implementar la visualizacion inicial mas simple para probar el valor.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "order": 4,
@@ -168,6 +184,16 @@
     {
       "order": 6,
       "task": "Definir el mecanismo visible inicial para mostrar la entidad objetivo.",
+      "status": "completed"
+    },
+    {
+      "order": 7,
+      "task": "Probar en Home Assistant local que el sensor propio de WizzyOS aparece y refleja el tanque de gas.",
+      "status": "pending"
+    },
+    {
+      "order": 8,
+      "task": "Evaluar options_flow para editar o agregar multiples entidades desde configuracion avanzada.",
       "status": "pending"
     }
   ],

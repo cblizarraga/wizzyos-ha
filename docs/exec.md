@@ -15,7 +15,9 @@ Este archivo registra el avance practico del desarrollo del componente hasta log
 - Nombre visible de la integracion actualizado a `WizzyOS`.
 - Reglas de gestion de contexto documentadas en `docs/context-management.md`.
 - Tipo de integracion actualizado de `hub` a `entity` para que Home Assistant muestre entidades en vez de hubs.
-- Version del manifest actualizada a `0.1.1`.
+- Plataforma `sensor` creada en `custom_components/wizzyos/sensor.py`.
+- Config flow actualizado para seleccionar entidades existentes con selector nativo.
+- Version del manifest actualizada a `0.2.0`.
 - Archivos iniciales creados:
   - `manifest.json`
   - `__init__.py`
@@ -47,7 +49,7 @@ Estado: implementado. El flujo solicita `name` y `entity_id`, valida formato bas
 - Confirmar que existe.
 - Guardar estado y atributos relevantes.
 
-Estado: implementado parcialmente. `async_setup_entry` obtiene la entidad configurada con `hass.states.get(entity_id)` y guarda disponibilidad, estado y atributos en `hass.data`.
+Estado: implementado. `async_setup_entry` obtiene la entidad configurada con `hass.states.get(entity_id)`, guarda disponibilidad, estado y atributos en `hass.data`, y carga la plataforma `sensor`.
 
 ### 3. Definir Visualizacion Inicial
 
@@ -55,8 +57,7 @@ Estado: implementado parcialmente. `async_setup_entry` obtiene la entidad config
 - Priorizar una solucion que permita confirmar lectura real del estado.
 - Documentar el mecanismo seleccionado.
 
-Estado: pendiente.
-Estado: validado. La integracion ya quedo funcionando en Home Assistant local.
+Estado: implementado. WizzyOS crea un sensor visible que refleja la entidad seleccionada y se actualiza cuando cambia la entidad origen.
 
 ### 4. Probar en Home Assistant Local
 
@@ -64,7 +65,7 @@ Estado: validado. La integracion ya quedo funcionando en Home Assistant local.
 - Instalar la integracion desde HACS.
 - Reiniciar Home Assistant.
 - Agregar la integracion desde la UI.
-- Ingresar el `entity_id` del tanque de gas.
+- Seleccionar o ingresar el `entity_id` del tanque de gas.
 - Confirmar que el estado se obtiene correctamente.
 
 Estado: pendiente.
@@ -95,10 +96,13 @@ Estado: pendiente.
 - Se confirmo que la integracion WizzyOS ya funciona en Home Assistant local.
 - Se cambio `integration_type` de `hub` a `entity` en `manifest.json` para que la UI use `Agregar Entidad` y `Entidades` en vez de `Agregar Hub` y `Hubs`.
 - Se incremento la version del manifest a `0.1.1` para publicar el ajuste de metadatos.
+- Se agrego `sensor.py` para crear un sensor propio de WizzyOS por cada entidad configurada.
+- Se actualizo el config flow para usar un selector nativo de entidades existentes.
+- Se incremento la version del manifest a `0.2.0`.
 
 ## Riesgos o Bloqueos
 
 - Falta conocer el `entity_id` real del tanque de gas.
-- Falta decidir el mecanismo exacto de visualizacion dentro de Home Assistant.
+- Falta probar en Home Assistant local la creacion del sensor propio de WizzyOS con la entidad del tanque de gas.
 - La prueba local depende de tener acceso a una instancia de Home Assistant con la entidad ya configurada.
 - Confirmado: la integracion ya funciona en Home Assistant local despues de los ajustes de dominio/config flow.
