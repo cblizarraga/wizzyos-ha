@@ -45,7 +45,9 @@
     "service_type_confirmed_in_home_assistant": true,
     "gas_tank_configured_in_wizzyos": true,
     "options_flow_config_entry_setter_fix_applied": true,
-    "hacs_hash_branch_workaround_applied": true
+    "hacs_hash_branch_workaround_applied": true,
+    "saas_bridge_design_created": true,
+    "backend_contract_draft_created": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
@@ -59,6 +61,8 @@
     "execution": "docs/exec.md",
     "memory": "docs/memory.json",
     "context_management": "docs/context-management.md",
+    "saas_bridge_design": "docs/saas-bridge-design.md",
+    "backend_contract_draft": "docs/backend-contract-draft.md",
     "agent": ".opencode/agent/ha-component-dev.md",
     "hacs": "hacs.json",
     "readme": "README.md"
@@ -168,6 +172,11 @@
       "date": "2026-06-09",
       "decision": "Usar _config_entry dentro de WizzyOSOptionsFlow.",
       "reason": "Home Assistant expone config_entry como propiedad sin setter en OptionsFlow; asignarla directamente causa AttributeError al abrir la configuracion."
+    },
+    {
+      "date": "2026-06-09",
+      "decision": "Disenar primero el puente HA -> WizzyOS SaaS antes de implementar backend.",
+      "reason": "El usuario no tiene acceso en esta maquina al backend y necesita documentacion clara para entregar a otro agente. La integracion debe definir primero el contrato que el backend necesitara."
     }
   ],
   "test_findings": [
@@ -264,6 +273,11 @@
       "id": "integration_type_architecture",
       "question": "Debe WizzyOS declararse como service o hub?",
       "status": "resolved_service_ha_to_saas"
+    },
+    {
+      "id": "backend_access",
+      "question": "Hay acceso local al backend para implementarlo desde esta maquina?",
+      "status": "no_access_backend_agent_required"
     }
   ],
   "next_steps": [
@@ -316,6 +330,21 @@
       "order": 10,
       "task": "Confirmar que HACS instala WizzyOS desde main o tag estable sin errores 404.",
       "status": "completed"
+    },
+    {
+      "order": 11,
+      "task": "Implementar configuracion de backend_url, api_token y enabled en la integracion.",
+      "status": "pending"
+    },
+    {
+      "order": 12,
+      "task": "Implementar cliente HTTP asincrono y envio de eventos HA -> WizzyOS SaaS.",
+      "status": "pending"
+    },
+    {
+      "order": 13,
+      "task": "Cerrar documento final de requerimientos backend despues de validar la integracion emisora.",
+      "status": "pending"
     }
   ],
   "constraints": [

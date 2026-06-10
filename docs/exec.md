@@ -120,6 +120,8 @@ Estado: pendiente.
 - Se revisaron logs posteriores: los errores activos son de ESPHome al no poder conectar con `wizzyos-homelab` y `kc868-a4-cbl-pruebas1`; no corresponden al custom component WizzyOS.
 - Los errores `AttributeError` de `WizzyOSOptionsFlow` y `HACS 404 refs/heads/1c1337b.zip` corresponden a entradas historicas anteriores al arreglo.
 - El usuario confirmo que `Configurar` ya abre sin errores.
+- Se creo `docs/saas-bridge-design.md` para disenar el puente HA -> WizzyOS SaaS/GCP antes de implementar envio real.
+- Se creo `docs/backend-contract-draft.md` como contrato preliminar para el agente de backend.
 
 ## Riesgos o Bloqueos
 
