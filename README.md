@@ -1,12 +1,14 @@
 # WizzyOS
 
-WizzyOS es un custom component de Home Assistant para visualizar entidades basicas de una instancia local, iniciando con el nivel del tanque de gas.
+WizzyOS es un custom component de Home Assistant para seleccionar entidades locales y reflejarlas hacia WizzyOS SaaS, iniciando con el nivel del tanque de gas.
 
 ## Estado
 
 Proyecto en desarrollo inicial. WizzyOS ya permite seleccionar una entidad existente y crear un sensor visible basado en ella.
 
 Repositorio activo: `wizzyos-ha`.
+
+Tipo de integracion: `service`, porque Home Assistant es la fuente de verdad y WizzyOS exporta/refleja datos hacia un servicio externo donde viven los gemelos digitales.
 
 ## Instalacion Desde Repositorio
 
@@ -40,6 +42,14 @@ Si solo ves WizzyOS dentro de la pagina de HACS, vuelve a la lista principal de 
 ## Objetivo De Prueba Basica
 
 Confirmar que la integracion puede leer una entidad local existente, crear un sensor propio de WizzyOS y mantenerlo actualizado con el estado de la entidad seleccionada.
+
+## Arquitectura
+
+- Direccion principal actual: Home Assistant -> WizzyOS SaaS.
+- Home Assistant mantiene las entidades locales como fuente de verdad.
+- WizzyOS reflejara esas entidades hacia la nube para crear y visualizar gemelos digitales.
+- Por esta razon el manifest usa `integration_type: service`.
+- Si en el futuro WizzyOS SaaS crea dispositivos en la nube y los importa hacia Home Assistant como dispositivos administrados localmente, se reevaluara cambiar a `hub`.
 
 ## Pendientes
 

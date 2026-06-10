@@ -3,7 +3,7 @@
     "name": "wizzyos-ha",
     "display_name": "WizzyOS",
     "integration_domain": "wizzyos",
-    "manifest_version": "0.4.0",
+    "manifest_version": "0.5.0",
     "component_path": "custom_components/wizzyos",
     "documentation_path": "docs",
     "opencode_agent": "ha-component-dev"
@@ -32,7 +32,8 @@
     "context_management_documented": true,
     "integration_working_in_home_assistant": true,
     "integration_type_updated_to_entity": false,
-    "integration_type_reverted_to_hub": true,
+    "integration_type_reverted_to_hub": false,
+    "integration_type_set_to_service": true,
     "sensor_platform_created": true,
     "entity_selector_enabled": true,
     "visible_mirror_sensor_created": true,
@@ -153,6 +154,11 @@
       "date": "2026-06-08",
       "decision": "Revertir integration_type de entity a hub.",
       "reason": "El usuario confirmo que la primera version si mostraba el flujo para pedir entidad. El cambio a entity resolvia etiquetas, pero empeoro la experiencia de configuracion. Se prioriza recuperar la integracion agregable/configurable."
+    },
+    {
+      "date": "2026-06-08",
+      "decision": "Usar integration_type service para WizzyOS.",
+      "reason": "La funcion principal es exportar/reflejar entidades de Home Assistant hacia WizzyOS SaaS/GCP, donde se visualizaran gemelos digitales. Home Assistant es la fuente de verdad, por lo que service describe mejor la arquitectura que hub o entity."
     }
   ],
   "test_findings": [
@@ -208,6 +214,11 @@
       "id": "initial_visualization",
       "question": "La primera visualizacion sera pagina propia, panel, dashboard card, sensor agregado o servicio?",
       "status": "resolved_sensor_entity"
+    },
+    {
+      "id": "integration_type_architecture",
+      "question": "Debe WizzyOS declararse como service o hub?",
+      "status": "resolved_service_ha_to_saas"
     }
   ],
   "next_steps": [
