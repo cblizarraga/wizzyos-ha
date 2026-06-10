@@ -117,12 +117,15 @@ Estado: pendiente.
 - Se incremento la version del manifest a `0.5.1`.
 - HACS intento descargar `refs/heads/1c1337b.zip`; se creo una rama remota `1c1337b` apuntando al commit corregido para resolver ese 404.
 - Despues de reiniciar/reordenar HACS, el usuario reporto que WizzyOS parece quedar funcionando correctamente.
+- Se revisaron logs posteriores: los errores activos son de ESPHome al no poder conectar con `wizzyos-homelab` y `kc868-a4-cbl-pruebas1`; no corresponden al custom component WizzyOS.
+- Los errores `AttributeError` de `WizzyOSOptionsFlow` y `HACS 404 refs/heads/1c1337b.zip` corresponden a entradas historicas anteriores al arreglo.
+- El usuario confirmo que `Configurar` ya abre sin errores.
 
 ## Riesgos o Bloqueos
 
 - Confirmado: el tanque de gas ya quedo configurado en WizzyOS.
 - Confirmado: WizzyOS aparece como servicio en Home Assistant.
-- Falta confirmar si despues de actualizar a `0.3.1` aparece `Configurar` en el menu de la entrada WizzyOS.
+- Confirmado: `Configurar` abre sin errores despues del fix de `_config_entry`.
 - Falta confirmar que HACS descarga correctamente desde `main` o desde un tag estable en vez de intentar descargar hashes como ramas.
 - Confirmado de forma preliminar: tras reiniciar, WizzyOS parece quedar funcionando correctamente desde HACS/Home Assistant.
 - La prueba local depende de tener acceso a una instancia de Home Assistant con la entidad ya configurada.

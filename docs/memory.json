@@ -217,7 +217,7 @@
       "date": "2026-06-09",
       "source": "Home Assistant log",
       "finding": "Al abrir options flow se reporto AttributeError: property 'config_entry' of 'WizzyOSOptionsFlow' object has no setter.",
-      "status": "fix_applied_pending_retest"
+      "status": "resolved"
     },
     {
       "date": "2026-06-09",
@@ -230,6 +230,18 @@
       "source": "Home Assistant UI",
       "finding": "Tras reiniciar/reordenar HACS, el usuario reporto que WizzyOS parece quedar funcionando correctamente.",
       "status": "confirmed_by_user_preliminary"
+    },
+    {
+      "date": "2026-06-09",
+      "source": "Home Assistant log",
+      "finding": "Los errores actuales a las 23:17 corresponden a ESPHome reconnect_logic para wizzyos-homelab y kc868-a4-cbl-pruebas1. No son errores del custom component WizzyOS. Los errores de WizzyOSOptionsFlow y HACS 404 mostrados en el mismo bloque son historicos de las 23:00 y anteriores al fix/workaround.",
+      "status": "diagnosed_not_wizzyos_component"
+    },
+    {
+      "date": "2026-06-09",
+      "source": "Home Assistant UI",
+      "finding": "El usuario confirmo que Configurar ya abre sin errores.",
+      "status": "confirmed_working"
     }
   ],
   "open_questions": [
@@ -298,7 +310,7 @@
     {
       "order": 9,
       "task": "Probar que el menu de tres puntos muestra Configurar y permite seleccionar multiples entidades.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "order": 10,
