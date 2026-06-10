@@ -171,8 +171,8 @@ Agregar diagnostico basico en Home Assistant:
 ## Plan De Implementacion En La Integracion
 
 1. Agregar constantes para `backend_url`, `api_token`, `enabled` y metricas. Estado: implementado.
-2. Extender config flow para pedir backend y token. Estado: implementado.
-3. Extender options flow para editar backend, token, enabled y entidades. Estado: implementado.
+2. Extender config flow para pedir backend y token. Estado: implementado y visible en Home Assistant.
+3. Extender options flow para editar backend, token, enabled y entidades. Estado: implementado y visible en Home Assistant.
 4. Crear cliente HTTP asincrono usando la sesion de Home Assistant. Estado: implementado.
 5. Suscribir cambios de estado para entidades configuradas. Estado: implementado.
 6. Construir payload versionado. Estado: implementado.

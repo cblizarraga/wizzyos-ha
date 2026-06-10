@@ -50,7 +50,9 @@
     "backend_contract_draft_created": true,
     "backend_config_fields_added": true,
     "http_event_client_created": true,
-    "state_change_exporter_created": true
+    "state_change_exporter_created": true,
+    "backend_fields_visible_in_home_assistant": true,
+    "v0_6_0_ui_validated": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
@@ -260,6 +262,12 @@
       "source": "Home Assistant UI",
       "finding": "El usuario confirmo que Configurar ya abre sin errores.",
       "status": "confirmed_working"
+    },
+    {
+      "date": "2026-06-09",
+      "source": "Home Assistant UI",
+      "finding": "El usuario confirmo que los campos backend_url, api_token y enabled ya aparecen en la configuracion de WizzyOS.",
+      "status": "confirmed_working"
     }
   ],
   "open_questions": [
@@ -292,6 +300,11 @@
       "id": "backend_url_and_token",
       "question": "Cuales seran la URL real del backend WizzyOS y el API token de prueba?",
       "status": "pending_backend_agent"
+    },
+    {
+      "id": "backend_fields_ui",
+      "question": "Los campos backend_url, api_token y enabled aparecen en Home Assistant?",
+      "status": "resolved_visible_in_home_assistant"
     }
   ],
   "next_steps": [

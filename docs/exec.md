@@ -126,6 +126,7 @@ Estado: pendiente.
 - Se agregaron campos `backend_url`, `api_token` y `enabled` al config flow/options flow.
 - Se agrego suscripcion a cambios de estado de entidades configuradas para enviar payloads al backend cuando `enabled` esta activo.
 - Se incremento la version del manifest a `0.6.0`.
+- El usuario confirmo en Home Assistant que ya aparecen los campos `backend_url`, `api_token` y `enabled` en la configuracion de WizzyOS.
 
 ## Riesgos o Bloqueos
 
@@ -137,3 +138,4 @@ Estado: pendiente.
 - La prueba local depende de tener acceso a una instancia de Home Assistant con la entidad ya configurada.
 - Confirmado: la integracion ya funciona en Home Assistant local despues de los ajustes de dominio/config flow.
 - Falta probar el envio real contra un backend WizzyOS disponible.
+- Confirmado: los campos de conexion al backend ya son visibles en la UI de Home Assistant.
