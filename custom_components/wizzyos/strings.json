@@ -6,20 +6,28 @@
         "description": "Selecciona una entidad existente de Home Assistant para que WizzyOS cree un sensor visible basado en ella.",
         "data": {
           "name": "Nombre",
-          "entity_id": "Entidad existente"
+          "entity_id": "Entidad existente",
+          "backend_url": "URL del backend WizzyOS",
+          "api_token": "API token",
+          "enabled": "Enviar eventos al backend"
         }
       },
       "init": {
         "title": "Configurar entidades WizzyOS",
         "description": "Selecciona las entidades existentes que WizzyOS debe reflejar como sensores propios.",
         "data": {
-          "entities": "Entidades"
+          "entities": "Entidades",
+          "backend_url": "URL del backend WizzyOS",
+          "api_token": "API token",
+          "enabled": "Enviar eventos al backend"
         }
       }
     },
     "error": {
       "invalid_entity_id": "El entity_id no es valido.",
-      "entity_not_found": "La entidad seleccionada no existe o no esta disponible."
+      "entity_not_found": "La entidad seleccionada no existe o no esta disponible.",
+      "invalid_url": "La URL del backend debe ser una URL HTTPS valida.",
+      "missing_backend_config": "Para activar el envio debes configurar URL del backend y API token."
     },
     "abort": {
       "already_configured": "Esta entidad ya esta configurada en WizzyOS."
@@ -31,13 +39,18 @@
         "title": "Configurar entidades WizzyOS",
         "description": "Selecciona las entidades existentes que WizzyOS debe reflejar como sensores propios.",
         "data": {
-          "entities": "Entidades"
+          "entities": "Entidades",
+          "backend_url": "URL del backend WizzyOS",
+          "api_token": "API token",
+          "enabled": "Enviar eventos al backend"
         }
       }
     },
     "error": {
       "invalid_entity_id": "El entity_id no es valido.",
-      "entity_not_found": "La entidad seleccionada no existe o no esta disponible."
+      "entity_not_found": "La entidad seleccionada no existe o no esta disponible.",
+      "invalid_url": "La URL del backend debe ser una URL HTTPS valida.",
+      "missing_backend_config": "Para activar el envio debes configurar URL del backend y API token."
     }
   }
 }

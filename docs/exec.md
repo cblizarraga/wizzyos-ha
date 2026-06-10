@@ -122,6 +122,10 @@ Estado: pendiente.
 - El usuario confirmo que `Configurar` ya abre sin errores.
 - Se creo `docs/saas-bridge-design.md` para disenar el puente HA -> WizzyOS SaaS/GCP antes de implementar envio real.
 - Se creo `docs/backend-contract-draft.md` como contrato preliminar para el agente de backend.
+- Se agrego `custom_components/wizzyos/client.py` con cliente HTTP asincrono para enviar eventos al backend WizzyOS.
+- Se agregaron campos `backend_url`, `api_token` y `enabled` al config flow/options flow.
+- Se agrego suscripcion a cambios de estado de entidades configuradas para enviar payloads al backend cuando `enabled` esta activo.
+- Se incremento la version del manifest a `0.6.0`.
 
 ## Riesgos o Bloqueos
 
@@ -132,3 +136,4 @@ Estado: pendiente.
 - Confirmado de forma preliminar: tras reiniciar, WizzyOS parece quedar funcionando correctamente desde HACS/Home Assistant.
 - La prueba local depende de tener acceso a una instancia de Home Assistant con la entidad ya configurada.
 - Confirmado: la integracion ya funciona en Home Assistant local despues de los ajustes de dominio/config flow.
+- Falta probar el envio real contra un backend WizzyOS disponible.

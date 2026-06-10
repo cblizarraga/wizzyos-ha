@@ -3,7 +3,7 @@
     "name": "wizzyos-ha",
     "display_name": "WizzyOS",
     "integration_domain": "wizzyos",
-    "manifest_version": "0.5.1",
+    "manifest_version": "0.6.0",
     "component_path": "custom_components/wizzyos",
     "documentation_path": "docs",
     "opencode_agent": "ha-component-dev"
@@ -47,7 +47,10 @@
     "options_flow_config_entry_setter_fix_applied": true,
     "hacs_hash_branch_workaround_applied": true,
     "saas_bridge_design_created": true,
-    "backend_contract_draft_created": true
+    "backend_contract_draft_created": true,
+    "backend_config_fields_added": true,
+    "http_event_client_created": true,
+    "state_change_exporter_created": true
   },
   "known_files": {
     "manifest": "custom_components/wizzyos/manifest.json",
@@ -55,6 +58,7 @@
     "const": "custom_components/wizzyos/const.py",
     "config_flow": "custom_components/wizzyos/config_flow.py",
     "sensor": "custom_components/wizzyos/sensor.py",
+    "client": "custom_components/wizzyos/client.py",
     "strings": "custom_components/wizzyos/strings.json",
     "spanish_translations": "custom_components/wizzyos/translations/es.json",
     "plan": "docs/plan.md",
@@ -177,6 +181,11 @@
       "date": "2026-06-09",
       "decision": "Disenar primero el puente HA -> WizzyOS SaaS antes de implementar backend.",
       "reason": "El usuario no tiene acceso en esta maquina al backend y necesita documentacion clara para entregar a otro agente. La integracion debe definir primero el contrato que el backend necesitara."
+    },
+    {
+      "date": "2026-06-09",
+      "decision": "Implementar envio HA -> WizzyOS SaaS por eventos de cambio de estado.",
+      "reason": "La arquitectura requiere exportar telemetria desde Home Assistant hacia el SaaS sin polling. La integracion usa backend_url, api_token y enabled para controlar el envio."
     }
   ],
   "test_findings": [
@@ -278,6 +287,11 @@
       "id": "backend_access",
       "question": "Hay acceso local al backend para implementarlo desde esta maquina?",
       "status": "no_access_backend_agent_required"
+    },
+    {
+      "id": "backend_url_and_token",
+      "question": "Cuales seran la URL real del backend WizzyOS y el API token de prueba?",
+      "status": "pending_backend_agent"
     }
   ],
   "next_steps": [
@@ -334,15 +348,20 @@
     {
       "order": 11,
       "task": "Implementar configuracion de backend_url, api_token y enabled en la integracion.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "order": 12,
       "task": "Implementar cliente HTTP asincrono y envio de eventos HA -> WizzyOS SaaS.",
-      "status": "pending"
+      "status": "completed"
     },
     {
       "order": 13,
+      "task": "Probar envio real contra backend WizzyOS disponible.",
+      "status": "pending"
+    },
+    {
+      "order": 14,
       "task": "Cerrar documento final de requerimientos backend despues de validar la integracion emisora.",
       "status": "pending"
     }

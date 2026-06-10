@@ -6,6 +6,8 @@ WizzyOS es un custom component de Home Assistant para seleccionar entidades loca
 
 Proyecto en desarrollo inicial. WizzyOS ya permite seleccionar una entidad existente y crear un sensor visible basado en ella.
 
+La integracion tambien puede configurarse con una URL de backend y API token para enviar eventos de cambio de estado hacia WizzyOS SaaS. Si el envio esta desactivado, WizzyOS sigue funcionando localmente sin llamar al backend.
+
 Repositorio activo: `wizzyos-ha`.
 
 Tipo de integracion: `service`, porque Home Assistant es la fuente de verdad y WizzyOS exporta/refleja datos hacia un servicio externo donde viven los gemelos digitales.
@@ -32,6 +34,8 @@ La instalacion esperada es como repositorio personalizado, no copiando archivos 
 3. Agrega la integracion `WizzyOS`.
 4. Ingresa un nombre.
 5. Selecciona una entidad existente, por ejemplo la entidad real del tanque de gas.
+6. Opcionalmente configura la URL HTTPS del backend WizzyOS y el API token.
+7. Activa `Enviar eventos al backend` solo cuando backend URL y API token sean validos.
 
 Para agregar o quitar entidades desde una configuracion existente, abre WizzyOS, usa el menu de tres puntos y selecciona `Configurar`.
 
@@ -49,6 +53,7 @@ Confirmar que la integracion puede leer una entidad local existente, crear un se
 - Home Assistant mantiene las entidades locales como fuente de verdad.
 - WizzyOS reflejara esas entidades hacia la nube para crear y visualizar gemelos digitales.
 - Por esta razon el manifest usa `integration_type: service`.
+- El envio usa eventos de cambio de estado de Home Assistant, no polling.
 - Si en el futuro WizzyOS SaaS crea dispositivos en la nube y los importa hacia Home Assistant como dispositivos administrados localmente, se reevaluara cambiar a `hub`.
 
 ## Pendientes
